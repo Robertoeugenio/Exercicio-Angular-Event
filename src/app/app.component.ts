@@ -29,6 +29,6 @@ export class AppComponent {
 
   }
   findProducts(p){
-    return p.id ===[0];
+    return p.id === this[0];
   }
 }

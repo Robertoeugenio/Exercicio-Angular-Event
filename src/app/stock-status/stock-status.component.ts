@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { EventEmitter } from '@angular/common/src/facade/async';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-stock-status',
@@ -9,14 +8,14 @@ import { EventEmitter } from '@angular/common/src/facade/async';
 export class StockStatusComponent {
   @Input() stock: number;
   @Input() productId: number;
-  @Input() stockValueChange = new EventEmitter();
+  @Output() stockValueChange = new EventEmitter();
   color = '';
-  updatestockvalue: number;
+  updatstockvalue: number;
 
   stockValueChanged() {
     this.stockValueChange.emit(
-      { id: this.productId, updatestockvalue: this.updatestockvalue });
-    this.updatestockvalue = null;
+      { id: this.productId, updatstockvalue: this.updatstockvalue });
+    this.updatstockvalue = null;
 
   }
   ngOnChanges() {
